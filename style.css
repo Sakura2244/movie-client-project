@@ -1,6 +1,16 @@
-#body{
+html{
     min-height: 100%;
     min-width: 630px;
+}
+#navbar{
+    min-width: 630px;
+}
+#bt{
+    background-color: transparent;
+    border-color: white;
+}
+#ham{
+    color: white;
 }
 #icon{
     width:40px;
@@ -17,9 +27,28 @@
     top: 0;
     right: 0;
 }
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>.a{
+    color: green;
+    background-color: white;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>.a:hover{
+    color: green;
+    background-color: #B8FFAB;
+}
+.nav-pills>li>.a{
+    color: white;
+}
+.nav-pills>li>.a:hover{
+    color: green;
+    background-color: rgba(206, 255, 197, 0.8);
+}
 #home{
     margin-top:50px;
 }
+#movies-homepage{
+    text-align:center;
+}
+
 #drop{
     float:left;
 }
@@ -35,6 +64,14 @@ img{
     margin:0 auto;
     overflow:hidden;
 }
+#fav{
+    border-radius: 20px;
+    border-color:black;
+}
+#movie-posters{
+    text-align:center;
+}
+
 
 
 

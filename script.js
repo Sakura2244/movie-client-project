@@ -2,21 +2,36 @@
 $(document).ready(function() {
     
     function callMovieAPIWithSearchTerm(searchTerm) {
-    
-        var i = Math.floor(Math.random() * (10 + 1));
         $.ajax({
-            url: "http://www.omdbapi.com/?&i=tt3896198&apikey=3ee0cafe&s=" + searchTerm ,
+            url: "https://www.omdbapi.com/?&i=tt3896198&apikey=3ee0cafe&s=" + searchTerm ,
             method: "GET",
             success: function(response) {
-                var url = response.data[i].images.original.url;
-                appendImageToBody(url);
+
+                    
+                for(i=0; i < response.Search.length; i++){
+                        
+                    console.log(response.Search[i].Poster)
+                    var url=response.Search[i].Poster;
+                    appendImageToBody(url)
+                    
+                }
+                
             },
         });
     }
     
     function appendImageToBody(srcURL) {
-        $("#results").append(`<a href="#"><img class='gif' src=  ${srcURL}  ></a>`);
-        $("home").hide();
+        if (srcURL !== "N/A"){
+            $("#results").append(`
+            <div>
+            <button id="fav" class="glyphicon glyphicon-heart" ></button>
+            <a href="#"><img class='gif' src=  ${srcURL}  ></a>
+            </div>
+        `);
+            $("home").hide();
+        }else if (srcURL === "N/A"){
+            alert("ERROR");
+        }
     }
     var searchTerm;
     $("input").keyup(function(event) {
@@ -27,8 +42,8 @@ $(document).ready(function() {
     $("#search").click(function() {
         searchTerm = $("input").val();
         callMovieAPIWithSearchTerm(searchTerm);
-        $("input").val("");
     });
+    
     
 });
     
