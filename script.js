@@ -24,12 +24,15 @@ $(document).ready(function() {
         if (srcURL !== "N/A"){
             $("#results").append(`
             <div>
-            <button id="fav" class="glyphicon glyphicon-heart" ></button>
-            <a href="#"><img class='gif' src=  ${srcURL}  ></a>
+            <button class="fav glyphicon glyphicon-heart" data-src=${srcURL}></button>
+            <a href="#"><img class='gif' src=${srcURL}></a>
             </div>
         `);
-            $("home").hide();
-        }else if (srcURL === "N/A"){
+            $("#home").hide();
+            
+            
+            
+        }else {
             alert("ERROR");
         }
     }
@@ -39,11 +42,19 @@ $(document).ready(function() {
             $("#search").click();
         }
     });
+    
     $("#search").click(function() {
         searchTerm = $("input").val();
         callMovieAPIWithSearchTerm(searchTerm);
     });
     
+    $("body").on('click', '.fav', function(){
+        var src = $(this).data('src');
+        //$(src).clone().appendTo($("#favorite"));
+        // APPEND SRC TO #FAVORITES
+        $("#favorite").append("<img src=" + src + ">");
+        console.log(src);
+    });
     
 });
     

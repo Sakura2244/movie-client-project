@@ -42,9 +42,10 @@ html{
     color: green;
     background-color: rgba(206, 255, 197, 0.8);
 }
-#home{
+#content{
     margin-top:50px;
 }
+
 #movies-homepage{
     text-align:center;
 }
@@ -64,21 +65,23 @@ img{
     margin:0 auto;
     overflow:hidden;
 }
-#fav{
-    border-radius: 20px;
-    border-color:black;
-}
+
 #movie-posters{
     text-align:center;
 }
 
-
-
+#side{
+    min-height: 100%;
+}
+#favorite{
+    width:100%;
+    text-align: center;
+}
 
 
 
 @media all and (max-width: 767px){
-    #home{
+    #content{
         margin-top:90px;
     }
 }
